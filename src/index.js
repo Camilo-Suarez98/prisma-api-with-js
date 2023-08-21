@@ -21,7 +21,7 @@ app.get('/api/users', async (_, res) => {
   return res.status(200).json(users)
 })
 
-app.get('/api/users/:id', async (_, res) => {
+app.get('/api/users/:id', async (req, res) => {
   const { id } = req.params
   const userFound = await prisma.user.findUnique({
     where: { id }
